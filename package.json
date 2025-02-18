@@ -17,6 +17,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@prisma/client": "^6.3.1",
     "classnames": "^2.5.1",
     "next": "15.1.7",
     "prisma": "^6.3.1",

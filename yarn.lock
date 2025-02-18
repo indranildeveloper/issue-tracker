@@ -529,6 +529,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@prisma/client@npm:^6.3.1":
+  version: 6.3.1
+  resolution: "@prisma/client@npm:6.3.1"
+  peerDependencies:
+    prisma: "*"
+    typescript: ">=5.1.0"
+  peerDependenciesMeta:
+    prisma:
+      optional: true
+    typescript:
+      optional: true
+  checksum: 10c0/8d3b5fbbd60559b32b15029bf52d41cc3e643e58a8b2e6fc2075f09733900268c941f369c44271cb08b434bc5689f3317c0e5d0eb229355faf7ffbc1e9306b35
+  languageName: node
+  linkType: hard
+
 "@prisma/debug@npm:6.3.1":
   version: 6.3.1
   resolution: "@prisma/debug@npm:6.3.1"
@@ -2799,6 +2814,7 @@ __metadata:
   dependencies:
     "@eslint/eslintrc": "npm:^3.2.0"
     "@eslint/js": "npm:^9.20.0"
+    "@prisma/client": "npm:^6.3.1"
     "@types/node": "npm:^20"
     "@types/react": "npm:^19"
     "@types/react-dom": "npm:^19"
