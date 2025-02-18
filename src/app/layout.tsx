@@ -1,8 +1,10 @@
+import { FC } from "react";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import "./globals.css";
-import { FC } from "react";
 import { RootLayoutProps } from "@/interfaces/RootLayoutProps";
+import Navbar from "@/components/Navbar";
+
+import "@/styles/globals.css";
 
 const poppins = Poppins({
   variable: "--font-poppins-sans",
@@ -18,7 +20,10 @@ export const metadata: Metadata = {
 const RootLayout: FC<RootLayoutProps> = ({ children }) => {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} antialiased`}>{children}</body>
+      <body className={`${poppins.variable} antialiased`}>
+        <Navbar />
+        <main>{children}</main>
+      </body>
     </html>
   );
 };
