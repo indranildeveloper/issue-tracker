@@ -25,7 +25,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
       <body className={`${poppins.variable} antialiased`}>
         <Theme>
           <Navbar />
-          <main>{children}</main>
+          <main className="p-5">{children}</main>
         </Theme>
       </body>
     </html>
