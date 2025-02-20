@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { notFound } from "next/navigation";
 import { Card, Flex, Heading, Text } from "@radix-ui/themes";
+import ReactMarkdown from "react-markdown";
 import { prisma } from "@/db/database";
 import delay from "delay";
 import { IssueDetailPageProps } from "@/interfaces/IssueDetailPageProps";
@@ -29,8 +30,8 @@ const IssueDetailPage: FC<IssueDetailPageProps> = async ({ params }) => {
         <IssueStatusBadge status={issue.status} />
         <Text>{issue.createdAt.toDateString()}</Text>
       </Flex>
-      <Card>
-        <p>{issue.description}</p>
+      <Card className="prose" mt="4">
+        <ReactMarkdown>{issue.description}</ReactMarkdown>
       </Card>
     </div>
   );
