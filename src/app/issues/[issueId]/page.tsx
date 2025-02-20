@@ -1,8 +1,10 @@
 import { FC } from "react";
 import { notFound } from "next/navigation";
+import { Card, Flex, Heading, Text } from "@radix-ui/themes";
 import { prisma } from "@/db/database";
-import { IssueDetailPageProps } from "@/interfaces/IssueDetailPageProps";
 import delay from "delay";
+import { IssueDetailPageProps } from "@/interfaces/IssueDetailPageProps";
+import IssueStatusBadge from "@/components/IssueStatusBadge";
 
 const IssueDetailPage: FC<IssueDetailPageProps> = async ({ params }) => {
   const { issueId } = await params;
@@ -22,10 +24,14 @@ const IssueDetailPage: FC<IssueDetailPageProps> = async ({ params }) => {
 
   return (
     <div>
-      <p>{issue.title}</p>
-      <p>{issue.description}</p>
-      <p>{issue.status}</p>
-      <p>{issue.createdAt.toDateString()}</p>
+      <Heading>{issue.title}</Heading>
+      <Flex gap="3" my="2">
+        <IssueStatusBadge status={issue.status} />
+        <Text>{issue.createdAt.toDateString()}</Text>
+      </Flex>
+      <Card>
+        <p>{issue.description}</p>
+      </Card>
     </div>
   );
 };
