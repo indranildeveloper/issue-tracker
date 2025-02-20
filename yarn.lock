@@ -1894,7 +1894,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/estree@npm:^1.0.6":
+"@types/codemirror@npm:^5.60.10, @types/codemirror@npm:~5.60.5":
+  version: 5.60.15
+  resolution: "@types/codemirror@npm:5.60.15"
+  dependencies:
+    "@types/tern": "npm:*"
+  checksum: 10c0/4d32ee8d335650956fc59b26f29909de0656ce9c68f7527caf2aa68e6a6a2e8be6ec7a6b80c02bfab7ac6b17040d6c2d83d394b9d00fdbf4b5588691f2efbba6
+  languageName: node
+  linkType: hard
+
+"@types/estree@npm:*, @types/estree@npm:^1.0.6":
   version: 1.0.6
   resolution: "@types/estree@npm:1.0.6"
   checksum: 10c0/cdfd751f6f9065442cd40957c07fd80361c962869aa853c1c2fd03e101af8b9389d8ff4955a43a6fcfa223dd387a089937f95be0f3eec21ca527039fd2d9859a
@@ -1912,6 +1921,13 @@ __metadata:
   version: 0.0.29
   resolution: "@types/json5@npm:0.0.29"
   checksum: 10c0/6bf5337bc447b706bb5b4431d37686aa2ea6d07cfd6f79cc31de80170d6ff9b1c7384a9c0ccbc45b3f512bae9e9f75c2e12109806a15331dc94e8a8db6dbb4ac
+  languageName: node
+  linkType: hard
+
+"@types/marked@npm:^4.0.7":
+  version: 4.3.2
+  resolution: "@types/marked@npm:4.3.2"
+  checksum: 10c0/6f44d28da5c940a719d6c6aca41e33f49c5fe957f7972939cc1cbb47d045951f4d969f382d655345d0463e47db1994635d2862018716fcef2fa85ceeceb116e7
   languageName: node
   linkType: hard
 
@@ -1939,6 +1955,15 @@ __metadata:
   dependencies:
     csstype: "npm:^3.0.2"
   checksum: 10c0/41884cca21850c8b2d6578b172ca0ca4fff6021251a68532b19f2031ac23dc5a9222470208065f8d9985d367376047df2f49ece8d927f7d04cdc94922b1eb34b
+  languageName: node
+  linkType: hard
+
+"@types/tern@npm:*":
+  version: 0.23.9
+  resolution: "@types/tern@npm:0.23.9"
+  dependencies:
+    "@types/estree": "npm:*"
+  checksum: 10c0/1d30ccfbb84362fe7a7edeea3ba5268f5a7a0965d504147c6b701092f0ea3f0833799ee753e2059a535ca06590f91dd2416e4bd94a6e8ad51eea127a0607c617
   languageName: node
   linkType: hard
 
@@ -2525,6 +2550,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"codemirror-spell-checker@npm:1.1.2":
+  version: 1.1.2
+  resolution: "codemirror-spell-checker@npm:1.1.2"
+  dependencies:
+    typo-js: "npm:*"
+  checksum: 10c0/3846e6c6eb81d165db72cb2e15c413f3b948c0dd779c500d254aea417fe1cc58580688b78eb860a84c45e11251b5cd6a61a477141fa39dd3a2b04c2f5c91e474
+  languageName: node
+  linkType: hard
+
+"codemirror@npm:^5.65.15":
+  version: 5.65.18
+  resolution: "codemirror@npm:5.65.18"
+  checksum: 10c0/806e00c7081f9a5ba6bc59205d0cf5ada273bc977da9967d04a78e94e27cdfbd41a10409fcf74eea4b12eebe1972e05120771780729a8bc04eef14b1ed20ac98
+  languageName: node
+  linkType: hard
+
 "color-convert@npm:^2.0.1":
   version: 2.0.1
   resolution: "color-convert@npm:2.0.1"
@@ -2758,6 +2799,19 @@ __metadata:
   version: 0.2.0
   resolution: "eastasianwidth@npm:0.2.0"
   checksum: 10c0/26f364ebcdb6395f95124fda411f63137a4bfb5d3a06453f7f23dfe52502905bd84e0488172e0f9ec295fdc45f05c23d5d91baf16bd26f0fe9acd777a188dc39
+  languageName: node
+  linkType: hard
+
+"easymde@npm:^2.19.0":
+  version: 2.19.0
+  resolution: "easymde@npm:2.19.0"
+  dependencies:
+    "@types/codemirror": "npm:^5.60.10"
+    "@types/marked": "npm:^4.0.7"
+    codemirror: "npm:^5.65.15"
+    codemirror-spell-checker: "npm:1.1.2"
+    marked: "npm:^4.1.0"
+  checksum: 10c0/43e0fb4202e824ba66db4d1aebcd54887888f283644034716b3fce1a491b0640a8c14dbe90c3c0815f5d7c9ff181f0074610e876e468fce42a883d54ad4bf774
   languageName: node
   linkType: hard
 
@@ -4118,6 +4172,7 @@ __metadata:
     "@types/react-dom": "npm:^19"
     "@typescript-eslint/parser": "npm:^8.24.1"
     classnames: "npm:^2.5.1"
+    easymde: "npm:^2.19.0"
     eslint: "npm:^9"
     eslint-config-next: "npm:15.1.7"
     eslint-config-prettier: "npm:^10.0.1"
@@ -4134,6 +4189,7 @@ __metadata:
     react: "npm:^19.0.0"
     react-dom: "npm:^19.0.0"
     react-icons: "npm:^5.4.0"
+    react-simplemde-editor: "npm:^5.2.0"
     tailwindcss: "npm:^3.4.1"
     typescript: "npm:^5"
     typescript-eslint: "npm:^8.24.1"
@@ -4392,6 +4448,15 @@ __metadata:
     promise-retry: "npm:^2.0.1"
     ssri: "npm:^12.0.0"
   checksum: 10c0/c40efb5e5296e7feb8e37155bde8eb70bc57d731b1f7d90e35a092fde403d7697c56fb49334d92d330d6f1ca29a98142036d6480a12681133a0a1453164cb2f0
+  languageName: node
+  linkType: hard
+
+"marked@npm:^4.1.0":
+  version: 4.3.0
+  resolution: "marked@npm:4.3.0"
+  bin:
+    marked: bin/marked.js
+  checksum: 10c0/0013463855e31b9c88d8bb2891a611d10ef1dc79f2e3cbff1bf71ba389e04c5971298c886af0be799d7fa9aa4593b086a136062d59f1210b0480b026a8c5dc47
   languageName: node
   linkType: hard
 
@@ -5325,6 +5390,19 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 10c0/068e9704ff26816fffc4c8903e2c6c8df7291ee08615d7c1ab0cf8751f7080e2c5a5d78ef5d908b11b9cfc189f176d312e44cb02ea291ca0466d8283b479b438
+  languageName: node
+  linkType: hard
+
+"react-simplemde-editor@npm:^5.2.0":
+  version: 5.2.0
+  resolution: "react-simplemde-editor@npm:5.2.0"
+  dependencies:
+    "@types/codemirror": "npm:~5.60.5"
+  peerDependencies:
+    easymde: ">= 2.0.0 < 3.0.0"
+    react: ">=16.8.2"
+    react-dom: ">=16.8.2"
+  checksum: 10c0/6b352fe0634cc45277502b83eeb70030d50a0726943b8e343e4afccb0dd152a395a533c151795a9724ec61413a3567fd23ed209d60f0ec283006add12b0c120e
   languageName: node
   linkType: hard
 
@@ -6291,6 +6369,13 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 10c0/6fd7e0ed3bf23a81246878c613423730c40e8bdbfec4c6e4d7bf1b847cbb39076e56ad5f50aa9d7ebd89877999abaee216002d3f2818885e41c907caaa192cc4
+  languageName: node
+  linkType: hard
+
+"typo-js@npm:*":
+  version: 1.2.5
+  resolution: "typo-js@npm:1.2.5"
+  checksum: 10c0/0cdd27f2c9027d0c3eefd284365be7ba15377f1d62482a43c14d6f088dac1133d3c71ae109f90ea1e0e4f2918422c2649dcd9926f19bfdc3f09414e5ef1fe2b8
   languageName: node
   linkType: hard
 
