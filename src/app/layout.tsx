@@ -6,10 +6,11 @@ import { RootLayoutProps } from "@/interfaces/RootLayoutProps";
 import Navbar from "@/components/Navbar";
 
 import "@radix-ui/themes/styles.css";
+import "@/styles/theme.config.css";
 import "@/styles/globals.css";
 
 const poppins = Poppins({
-  variable: "--font-poppins-sans",
+  variable: "--font-poppins",
   subsets: ["latin"],
   weight: ["400", "500"],
 });
@@ -23,7 +24,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
   return (
     <html lang="en">
       <body className={`${poppins.variable} antialiased`}>
-        <Theme>
+        <Theme accentColor="iris" grayColor="slate" radius="large">
           <Navbar />
           <main className="p-5">{children}</main>
         </Theme>
