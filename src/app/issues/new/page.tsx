@@ -4,7 +4,7 @@ import { FC, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Button, Callout, Text, TextField } from "@radix-ui/themes";
+import { Button, Callout, TextField } from "@radix-ui/themes";
 import { useForm, Controller } from "react-hook-form";
 import SimpleMDE from "react-simplemde-editor";
 import "easymde/dist/easymde.min.css";
@@ -12,6 +12,7 @@ import {
   CreateIssueValidator,
   CreateIssueRequest,
 } from "@/validators/IssueValidator";
+import ErrorMessage from "@/components/ErrorMessage";
 
 // TODO: Refactor and extract common components
 const NewIssuePage: FC = () => {
@@ -48,11 +49,7 @@ const NewIssuePage: FC = () => {
         })}
       >
         <TextField.Root placeholder="Title" {...register("title")} />
-        {errors.title && (
-          <Text color="red" as="p">
-            {errors.title.message}
-          </Text>
-        )}
+        <ErrorMessage>{errors.title?.message}</ErrorMessage>
         <Controller
           name="description"
           control={control}
@@ -60,11 +57,7 @@ const NewIssuePage: FC = () => {
             <SimpleMDE placeholder="Description" {...field} />
           )}
         />
-        {errors.description && (
-          <Text color="red" as="p">
-            {errors.description.message}
-          </Text>
-        )}
+        <ErrorMessage>{errors.description?.message}</ErrorMessage>
         <Button>Submit New Issue</Button>
       </form>
     </div>
