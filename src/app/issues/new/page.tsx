@@ -13,6 +13,7 @@ import {
   CreateIssueRequest,
 } from "@/validators/IssueValidator";
 import ErrorMessage from "@/components/ErrorMessage";
+import Spinner from "@/components/Spinner";
 
 // TODO: Refactor and extract common components
 const NewIssuePage: FC = () => {
@@ -26,6 +27,7 @@ const NewIssuePage: FC = () => {
     resolver: zodResolver(CreateIssueValidator),
   });
   const [error, setError] = useState<string>("");
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   return (
     <div className="max-w-xl">
@@ -40,9 +42,11 @@ const NewIssuePage: FC = () => {
         // eslint-disable-next-line @typescript-eslint/no-misused-promises
         onSubmit={handleSubmit(async (data) => {
           try {
+            setIsSubmitting(true);
             await axios.post("/api/issues", data);
             router.push("/issues");
           } catch (error) {
+            setIsSubmitting(false);
             console.log(error);
             setError("An unexpected error occurred!");
           }
@@ -58,7 +62,9 @@ const NewIssuePage: FC = () => {
           )}
         />
         <ErrorMessage>{errors.description?.message}</ErrorMessage>
-        <Button>Submit New Issue</Button>
+        <Button disabled={isSubmitting}>
+          Submit New Issue {isSubmitting && <Spinner />}
+        </Button>
       </form>
     </div>
   );
