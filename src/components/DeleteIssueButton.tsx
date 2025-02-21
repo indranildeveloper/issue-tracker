@@ -1,9 +1,36 @@
+"use client";
+
 import { FC } from "react";
+import { AlertDialog, Button, Flex } from "@radix-ui/themes";
 import { DeleteIssueButtonProps } from "@/interfaces/DeleteIssueButtonProps";
-import { Button } from "@radix-ui/themes";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const DeleteIssueButton: FC<DeleteIssueButtonProps> = ({ issueId }) => {
-  return <Button color="red">Delete Issue</Button>;
+  return (
+    <>
+      <AlertDialog.Root>
+        <AlertDialog.Trigger>
+          <Button color="red">Delete Issue</Button>
+        </AlertDialog.Trigger>
+        <AlertDialog.Content>
+          <AlertDialog.Title>Confirm Deletion</AlertDialog.Title>
+          <AlertDialog.Description>
+            Are you sure you want to delete this issue? This action can not be
+            undone.
+          </AlertDialog.Description>
+          <Flex mt="4" gap="3">
+            <AlertDialog.Cancel>
+              <Button color="gray" variant="soft">
+                Cancel
+              </Button>
+            </AlertDialog.Cancel>
+            <AlertDialog.Action>
+              <Button color="red">Delete Issue</Button>
+            </AlertDialog.Action>
+          </Flex>
+        </AlertDialog.Content>
+      </AlertDialog.Root>
+    </>
+  );
 };
 export default DeleteIssueButton;

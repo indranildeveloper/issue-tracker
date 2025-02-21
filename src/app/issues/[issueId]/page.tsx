@@ -4,7 +4,7 @@ import { Box, Flex, Grid } from "@radix-ui/themes";
 import { prisma } from "@/db/database";
 import { EditIssueButton, IssueDetails } from "@/components";
 import { IssueDetailPageProps } from "@/interfaces/IssueDetailPageProps";
-import DeleteIssueButton from "@/components/DeleteIssueButton";
+import { DeleteIssueButton } from "@/components";
 
 /**
  * * Single Responsibility Principle
