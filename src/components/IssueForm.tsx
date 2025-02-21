@@ -7,10 +7,7 @@ import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, Callout, TextField } from "@radix-ui/themes";
 import { useForm, Controller } from "react-hook-form";
-import {
-  CreateIssueValidator,
-  CreateIssueRequest,
-} from "@/validators/IssueValidator";
+import { IssueValidator, IssueRequestType } from "@/validators/IssueValidator";
 import ErrorMessage from "@/components/ErrorMessage";
 import Spinner from "@/components/Spinner";
 import { IssueFormProps } from "@/interfaces/IssueFormProps";
@@ -30,8 +27,8 @@ const IssueForm: FC<IssueFormProps> = ({ issue }) => {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<CreateIssueRequest>({
-    resolver: zodResolver(CreateIssueValidator),
+  } = useForm<IssueRequestType>({
+    resolver: zodResolver(IssueValidator),
   });
   const [error, setError] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
