@@ -2,11 +2,11 @@
 
 import { FC, useState } from "react";
 import axios from "axios";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, Callout, TextField } from "@radix-ui/themes";
 import { useForm, Controller } from "react-hook-form";
-import SimpleMDE from "react-simplemde-editor";
 import "easymde/dist/easymde.min.css";
 import {
   CreateIssueValidator,
@@ -14,6 +14,12 @@ import {
 } from "@/validators/IssueValidator";
 import ErrorMessage from "@/components/ErrorMessage";
 import Spinner from "@/components/Spinner";
+
+// ? Very important
+// ? This code prevents the error while loading the client side components in the server
+const SimpleMDE = dynamic(() => import("react-simplemde-editor"), {
+  ssr: false,
+});
 
 // TODO: Refactor and extract common components
 const NewIssuePage: FC = () => {
