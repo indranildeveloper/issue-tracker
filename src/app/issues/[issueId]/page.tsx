@@ -1,9 +1,10 @@
 import { FC } from "react";
 import { notFound } from "next/navigation";
-import { Box, Grid } from "@radix-ui/themes";
+import { Box, Flex, Grid } from "@radix-ui/themes";
 import { prisma } from "@/db/database";
 import { EditIssueButton, IssueDetails } from "@/components";
 import { IssueDetailPageProps } from "@/interfaces/IssueDetailPageProps";
+import DeleteIssueButton from "@/components/DeleteIssueButton";
 
 /**
  * * Single Responsibility Principle
@@ -25,12 +26,15 @@ const IssueDetailPage: FC<IssueDetailPageProps> = async ({ params }) => {
   if (!issue) notFound();
 
   return (
-    <Grid columns={{ initial: "1", md: "2" }} gap="5">
-      <Box>
+    <Grid columns={{ initial: "1", sm: "5" }} gap="5">
+      <Box className="md:col-span-4">
         <IssueDetails issue={issue} />
       </Box>
       <Box>
-        <EditIssueButton issueId={issue.id} />
+        <Flex direction="column" gap="4">
+          <EditIssueButton issueId={issue.id} />
+          <DeleteIssueButton issueId={issue.id} />
+        </Flex>
       </Box>
     </Grid>
   );

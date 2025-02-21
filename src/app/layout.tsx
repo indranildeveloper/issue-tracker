@@ -1,7 +1,7 @@
 import { FC } from "react";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import { Theme } from "@radix-ui/themes";
+import { Container, Theme } from "@radix-ui/themes";
 import { RootLayoutProps } from "@/interfaces/RootLayoutProps";
 import { Navbar } from "@/components";
 
@@ -26,7 +26,9 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
       <body className={`${poppins.variable} antialiased`}>
         <Theme accentColor="iris" grayColor="slate" radius="large">
           <Navbar />
-          <main className="p-5">{children}</main>
+          <main className="p-5">
+            <Container>{children}</Container>
+          </main>
         </Theme>
       </body>
     </html>
