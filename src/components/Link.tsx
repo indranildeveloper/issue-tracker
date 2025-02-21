@@ -1,7 +1,7 @@
 import { FC } from "react";
 import NextLink from "next/link";
 import { Link as RadixLink } from "@radix-ui/themes";
-import { LinkProps } from "@/interfaces/LinkProps";
+import { LinkProps } from "@/interfaces";
 
 const Link: FC<LinkProps> = ({ href, children }) => {
   return (

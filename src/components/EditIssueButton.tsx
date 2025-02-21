@@ -2,7 +2,7 @@ import { FC } from "react";
 import Link from "next/link";
 import { Pencil2Icon } from "@radix-ui/react-icons";
 import { Button } from "@radix-ui/themes";
-import { EditIssueButtonProps } from "@/interfaces/EditIssueButtonProps";
+import { EditIssueButtonProps } from "@/interfaces";
 
 const EditIssueButton: FC<EditIssueButtonProps> = ({ issueId }) => {
   return (

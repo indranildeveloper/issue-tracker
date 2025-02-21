@@ -10,7 +10,8 @@ import { useForm, Controller } from "react-hook-form";
 import { IssueValidator, IssueRequestType } from "@/validators/IssueValidator";
 import ErrorMessage from "@/components/ErrorMessage";
 import Spinner from "@/components/Spinner";
-import { IssueFormProps } from "@/interfaces/IssueFormProps";
+import { IssueFormProps } from "@/interfaces";
+
 import "easymde/dist/easymde.min.css";
 
 // ? Very important

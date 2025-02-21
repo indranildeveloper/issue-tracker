@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Heading, Flex, Card, Text } from "@radix-ui/themes";
 import ReactMarkdown from "react-markdown";
 import IssueStatusBadge from "./IssueStatusBadge";
-import { IssueDetailsProps } from "@/interfaces/IssueDetailsProps";
+import { IssueDetailsProps } from "@/interfaces";
 
 const IssueDetails: FC<IssueDetailsProps> = ({ issue }) => {
   return (

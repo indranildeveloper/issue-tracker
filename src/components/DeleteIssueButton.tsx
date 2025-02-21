@@ -4,7 +4,7 @@ import { FC, useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { AlertDialog, Button, Flex } from "@radix-ui/themes";
-import { DeleteIssueButtonProps } from "@/interfaces/DeleteIssueButtonProps";
+import { DeleteIssueButtonProps } from "@/interfaces";
 
 const DeleteIssueButton: FC<DeleteIssueButtonProps> = ({ issueId }) => {
   const router = useRouter();

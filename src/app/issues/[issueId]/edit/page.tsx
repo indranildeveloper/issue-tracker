@@ -2,7 +2,7 @@ import { FC } from "react";
 import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import { IssueFormSkeleton } from "@/components";
-import { EditIssuePageProps } from "@/interfaces/EditIssuePageProps";
+import { EditIssuePageProps } from "@/interfaces";
 import { prisma } from "@/db/database";
 
 const IssueForm = dynamic(() => import("@/components/IssueForm"), {

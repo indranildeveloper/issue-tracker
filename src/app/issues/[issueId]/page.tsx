@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { Box, Flex, Grid } from "@radix-ui/themes";
 import { prisma } from "@/db/database";
 import { EditIssueButton, IssueDetails } from "@/components";
-import { IssueDetailPageProps } from "@/interfaces/IssueDetailPageProps";
+import { IssueDetailPageProps } from "@/interfaces";
 import { DeleteIssueButton } from "@/components";
 
 /**

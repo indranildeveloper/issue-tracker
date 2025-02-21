@@ -1,7 +1,7 @@
 import { FC } from "react";
-import { IssueStatusBadgeProps } from "@/interfaces/IssueStatusBadgeProps";
 import { Badge } from "@radix-ui/themes";
 import { statusMap } from "@/constants/statusMap";
+import { IssueStatusBadgeProps } from "@/interfaces";
 
 const IssueStatusBadge: FC<IssueStatusBadgeProps> = ({ status }) => {
   return (
