@@ -7,13 +7,13 @@ import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, Callout, TextField } from "@radix-ui/themes";
 import { useForm, Controller } from "react-hook-form";
-import "easymde/dist/easymde.min.css";
 import {
   CreateIssueValidator,
   CreateIssueRequest,
 } from "@/validators/IssueValidator";
 import ErrorMessage from "@/components/ErrorMessage";
 import Spinner from "@/components/Spinner";
+import "easymde/dist/easymde.min.css";
 
 // ? Very important
 // ? This code prevents the error while loading the client side components in the server

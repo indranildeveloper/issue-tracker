@@ -3,9 +3,8 @@ import { notFound } from "next/navigation";
 import { Card, Flex, Heading, Text } from "@radix-ui/themes";
 import ReactMarkdown from "react-markdown";
 import { prisma } from "@/db/database";
-import delay from "delay";
+import { IssueStatusBadge } from "@/components";
 import { IssueDetailPageProps } from "@/interfaces/IssueDetailPageProps";
-import IssueStatusBadge from "@/components/IssueStatusBadge";
 
 const IssueDetailPage: FC<IssueDetailPageProps> = async ({ params }) => {
   const { issueId } = await params;
@@ -19,9 +18,6 @@ const IssueDetailPage: FC<IssueDetailPageProps> = async ({ params }) => {
   });
 
   if (!issue) notFound();
-
-  // TODO: Remove this
-  await delay(2000);
 
   return (
     <div>

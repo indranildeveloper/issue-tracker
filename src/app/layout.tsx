@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { Theme } from "@radix-ui/themes";
 import { RootLayoutProps } from "@/interfaces/RootLayoutProps";
-import Navbar from "@/components/Navbar";
+import { Navbar } from "@/components";
 
 import "@radix-ui/themes/styles.css";
 import "@/styles/theme.config.css";
