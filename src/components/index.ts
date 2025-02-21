@@ -8,3 +8,4 @@ export { default as Skeleton } from "./Skeleton";
 export { default as EditIssueButton } from "./EditIssueButton";
 export { default as IssueDetails } from "./IssueDetails";
 export { default as IssueForm } from "./IssueForm";
+export { default as IssueFormSkeleton } from "./IssueFormSkeleton";

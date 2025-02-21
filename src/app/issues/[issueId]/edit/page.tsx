@@ -1,8 +1,13 @@
 import { FC } from "react";
+import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
-import { IssueForm } from "@/components";
+import { IssueFormSkeleton } from "@/components";
 import { EditIssuePageProps } from "@/interfaces/EditIssuePageProps";
 import { prisma } from "@/db/database";
+
+const IssueForm = dynamic(() => import("@/components/IssueForm"), {
+  loading: () => <IssueFormSkeleton />,
+});
 
 const EditIssuePage: FC<EditIssuePageProps> = async ({ params }) => {
   const { issueId } = await params;
