@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getServerSession } from "next-auth";
 import { Box, Flex, Grid } from "@radix-ui/themes";
 import { prisma } from "@/db/database";
-import { EditIssueButton, IssueDetails } from "@/components";
+import { AssigneeSelect, EditIssueButton, IssueDetails } from "@/components";
 import { IssueDetailPageProps } from "@/interfaces";
 import { DeleteIssueButton } from "@/components";
 import { authOptions } from "@/constants/authOptions";
@@ -42,6 +42,7 @@ const IssueDetailPage: FC<IssueDetailPageProps> = async ({ params }) => {
       {session && (
         <Box>
           <Flex direction="column" gap="4">
+            <AssigneeSelect />
             <EditIssueButton issueId={issue.id} />
             <DeleteIssueButton issueId={issue.id} />
           </Flex>
