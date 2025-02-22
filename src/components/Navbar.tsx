@@ -21,8 +21,6 @@ const Navbar: FC = () => {
   const currentPath = usePathname();
   const { status, data: session } = useSession();
 
-  console.log(session);
-
   return (
     <nav className="mb-5 border-b px-5 py-6">
       <Container>
@@ -59,6 +57,7 @@ const Navbar: FC = () => {
                       fallback="?"
                       radius="full"
                       className="cursor-pointer"
+                      referrerPolicy="no-referrer"
                     />
                   </IconButton>
                 </DropdownMenu.Trigger>
