@@ -7,12 +7,21 @@ import { useSession } from "next-auth/react";
 import { AiFillBug } from "react-icons/ai";
 import classNames from "classnames";
 import { navLinks } from "@/constants/navLinks";
-import { Box, Container, Flex } from "@radix-ui/themes";
+import {
+  Avatar,
+  Box,
+  IconButton,
+  Container,
+  DropdownMenu,
+  Flex,
+  Text,
+} from "@radix-ui/themes";
 
 const Navbar: FC = () => {
   const currentPath = usePathname();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { status, data: session } = useSession();
+
+  console.log(session);
 
   return (
     <nav className="mb-5 border-b px-5 py-6">
@@ -42,7 +51,26 @@ const Navbar: FC = () => {
 
           <Box>
             {status === "authenticated" && (
-              <Link href="/api/auth/signout">Log Out</Link>
+              <DropdownMenu.Root>
+                <DropdownMenu.Trigger>
+                  <IconButton radius="full">
+                    <Avatar
+                      src={session.user!.image!}
+                      fallback="?"
+                      radius="full"
+                      className="cursor-pointer"
+                    />
+                  </IconButton>
+                </DropdownMenu.Trigger>
+                <DropdownMenu.Content>
+                  <DropdownMenu.Label>
+                    <Text size="2">{session.user!.email}</Text>
+                  </DropdownMenu.Label>
+                  <DropdownMenu.Item>
+                    <Link href="/api/auth/signout">Log Out</Link>
+                  </DropdownMenu.Item>
+                </DropdownMenu.Content>
+              </DropdownMenu.Root>
             )}
             {status === "unauthenticated" && (
               <Link href="/api/auth/signin">Log In</Link>
