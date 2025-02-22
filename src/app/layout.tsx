@@ -4,7 +4,7 @@ import { Poppins } from "next/font/google";
 import { Container, Theme } from "@radix-ui/themes";
 import { RootLayoutProps } from "@/interfaces";
 import { Navbar } from "@/components";
-import AuthProvider from "@/providers/AuthProvider";
+import { QueryClientProvider, AuthProvider } from "@/providers";
 
 import "@radix-ui/themes/styles.css";
 import "@/styles/theme.config.css";
@@ -25,14 +25,16 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
   return (
     <html lang="en">
       <body className={`${poppins.variable} antialiased`}>
-        <AuthProvider>
-          <Theme accentColor="iris" grayColor="slate" radius="large">
-            <Navbar />
-            <main className="p-5">
-              <Container>{children}</Container>
-            </main>
-          </Theme>
-        </AuthProvider>
+        <QueryClientProvider>
+          <AuthProvider>
+            <Theme accentColor="iris" grayColor="slate" radius="large">
+              <Navbar />
+              <main className="p-5">
+                <Container>{children}</Container>
+              </main>
+            </Theme>
+          </AuthProvider>
+        </QueryClientProvider>
       </body>
     </html>
   );
