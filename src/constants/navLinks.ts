@@ -5,6 +5,6 @@ export const navLinks = [
   },
   {
     label: "Issues",
-    href: "/issues",
+    href: "/issues/list",
   },
 ];
