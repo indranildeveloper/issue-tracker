@@ -1,7 +1,7 @@
 "use client";
 
-import { IssueFormSkeleton } from "@/components";
 import dynamic from "next/dynamic";
+import { IssueFormSkeleton } from "@/components";
 
 const IssueForm = dynamic(() => import("@/components/IssueForm"), {
   ssr: false,
