@@ -2,7 +2,10 @@ import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
 import { authOptions } from "@/constants/authOptions";
 import { prisma } from "@/db/database";
-import { IssueRequestType, IssueValidator } from "@/validators/IssueValidator";
+import {
+  IssuePatchRequestType,
+  IssuePatchValidator,
+} from "@/validators/IssueValidator";
 
 export async function PATCH(
   request: NextRequest,
@@ -13,14 +16,24 @@ export async function PATCH(
   const session = await getServerSession(authOptions);
 
   if (!session) {
-    return NextResponse.json({}, { status: 401 });
+    return NextResponse.json({ error: "Unauthorized!" }, { status: 401 });
   }
 
-  const body = (await request.json()) as IssueRequestType;
-  const validation = IssueValidator.safeParse(body);
+  const body = (await request.json()) as IssuePatchRequestType;
+  const validation = IssuePatchValidator.safeParse(body);
 
   if (!validation.success) {
     return NextResponse.json(validation.error.format(), { status: 400 });
+  }
+
+  if (body.assignedToUserId) {
+    const user = await prisma.user.findUnique({
+      where: { id: body.assignedToUserId },
+    });
+
+    if (!user) {
+      return NextResponse.json({ error: "Invalid User" }, { status: 400 });
+    }
   }
 
   const issue = await prisma.issue.findUnique({
@@ -36,8 +49,9 @@ export async function PATCH(
   const updatedIssue = await prisma.issue.update({
     where: { id: issue.id },
     data: {
-      title: body.title,
-      description: body.description,
+      title: body.title as string,
+      description: body.description as string,
+      assignedToUserId: body.assignedToUserId as string,
     },
   });
 
