@@ -2,9 +2,9 @@ import { FC } from "react";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { Container, Theme } from "@radix-ui/themes";
-import { RootLayoutProps } from "@/interfaces";
 import { Navbar } from "@/components";
 import { QueryClientProvider, AuthProvider } from "@/providers";
+import { RootLayoutProps } from "@/interfaces";
 
 import "@radix-ui/themes/styles.css";
 import "@/styles/theme.config.css";

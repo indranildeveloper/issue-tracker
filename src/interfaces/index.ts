@@ -7,3 +7,4 @@ export { type IssueFormProps } from "./IssueFormProps";
 export { type IssueStatusBadgeProps } from "./IssueStatusBadgeProps";
 export { type LinkProps } from "./LinkProps";
 export { type RootLayoutProps } from "./RootLayoutProps";
+export { type AssigneeSelectProps } from "./AssigneeSelectProps";
