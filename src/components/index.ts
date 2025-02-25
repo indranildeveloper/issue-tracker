@@ -11,3 +11,4 @@ export { default as IssueForm } from "./IssueForm";
 export { default as IssueFormSkeleton } from "./IssueFormSkeleton";
 export { default as DeleteIssueButton } from "./DeleteIssueButton";
 export { default as AssigneeSelect } from "./AssigneeSelect";
+export { default as IssueStatusFilter } from "./IssueStatusFilter";
