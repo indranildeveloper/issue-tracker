@@ -8,3 +8,4 @@ export { type IssueStatusBadgeProps } from "./IssueStatusBadgeProps";
 export { type LinkProps } from "./LinkProps";
 export { type RootLayoutProps } from "./RootLayoutProps";
 export { type AssigneeSelectProps } from "./AssigneeSelectProps";
+export { type IssuesPageProps } from "./IssuesPageProps";
