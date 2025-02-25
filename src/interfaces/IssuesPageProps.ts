@@ -1,5 +1,5 @@
-import { Status } from "@prisma/client";
+import { Issue, Status } from "@prisma/client";
 
 export interface IssuesPageProps {
-  searchParams: Promise<{ status: Status }>;
+  searchParams: Promise<{ status: Status; orderBy: keyof Issue }>;
 }

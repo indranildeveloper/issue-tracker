@@ -1,12 +1,15 @@
 import { FC } from "react";
+import NextLink from "next/link";
 import { Table } from "@radix-ui/themes";
 import { prisma } from "@/db/database";
 import { IssueActions, IssueStatusBadge, Link } from "@/components";
 import { IssuesPageProps } from "@/interfaces";
 import { Status } from "@prisma/client";
+import { issueTableColumns } from "@/constants/issueTableColumns";
+import { ArrowUpIcon } from "@radix-ui/react-icons";
 
 const IssuesPage: FC<IssuesPageProps> = async ({ searchParams }) => {
-  const { status } = await searchParams;
+  const { status, orderBy } = await searchParams;
 
   const statuses = Object.values(Status);
   const validatedStatus = statuses.includes(status) ? status : undefined;
@@ -23,13 +26,21 @@ const IssuesPage: FC<IssuesPageProps> = async ({ searchParams }) => {
       <Table.Root variant="surface">
         <Table.Header>
           <Table.Row>
-            <Table.ColumnHeaderCell>Issue</Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell className="hidden md:table-cell">
-              Status
-            </Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell className="hidden md:table-cell">
-              Created
-            </Table.ColumnHeaderCell>
+            {issueTableColumns.map((column) => (
+              <Table.ColumnHeaderCell
+                key={column.value}
+                className={column.className}
+              >
+                <NextLink
+                  href={{
+                    query: { status, orderBy: column.value },
+                  }}
+                >
+                  {column.label}
+                </NextLink>
+                {column.value === orderBy && <ArrowUpIcon className="inline" />}
+              </Table.ColumnHeaderCell>
+            ))}
           </Table.Row>
         </Table.Header>
         <Table.Body>
