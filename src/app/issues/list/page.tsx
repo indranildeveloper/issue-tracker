@@ -13,11 +13,17 @@ const IssuesPage: FC<IssuesPageProps> = async ({ searchParams }) => {
 
   const statuses = Object.values(Status);
   const validatedStatus = statuses.includes(status) ? status : undefined;
+  const validatedOrderBy = issueTableColumns
+    .map((column) => column.value)
+    .includes(orderBy)
+    ? { [orderBy]: "asc" }
+    : undefined;
 
   const issues = await prisma.issue.findMany({
     where: {
       status: validatedStatus,
     },
+    orderBy: validatedOrderBy,
   });
 
   return (
