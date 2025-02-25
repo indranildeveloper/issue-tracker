@@ -3,42 +3,33 @@
 import { FC } from "react";
 import axios from "axios";
 import { Avatar, Select } from "@radix-ui/themes";
-import { useQuery } from "@tanstack/react-query";
 import toast, { Toaster } from "react-hot-toast";
-import { User } from "@prisma/client";
 import Skeleton from "./Skeleton";
 import { AssigneeSelectProps } from "@/interfaces";
+import { useUsers } from "@/hooks";
 
 const AssigneeSelect: FC<AssigneeSelectProps> = ({ issue }) => {
-  const {
-    data: users,
-    error,
-    isLoading,
-  } = useQuery<User[]>({
-    queryKey: ["users"],
-    queryFn: () =>
-      axios.get<User[]>("/api/users").then((response) => response.data),
-    staleTime: 60 * 1000,
-    retry: 3,
-  });
+  const { data: users, error, isLoading } = useUsers();
 
   if (isLoading) return <Skeleton height="2rem" />;
 
   if (error) return null;
 
+  const assignIssue = (userId: string) => {
+    axios
+      .patch(`/api/issues/${issue.id}`, {
+        assignedToUserId: userId === "unassigned" ? null : userId,
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error("Changes could not be saved at this moment!");
+      });
+  };
+
   return (
     <>
       <Select.Root
-        onValueChange={(userId) => {
-          axios
-            .patch(`/api/issues/${issue.id}`, {
-              assignedToUserId: userId === "unassigned" ? null : userId,
-            })
-            .catch((error) => {
-              console.log(error);
-              toast.error("Changes could not be saved at this moment!");
-            });
-        }}
+        onValueChange={assignIssue}
         defaultValue={issue.assignedToUserId || "unassigned"}
       >
         <Select.Trigger placeholder="Assign..." />
