@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { IssueSummary } from "@/components";
+import { IssueChart, IssueSummary } from "@/components";
 import { prisma } from "@/db/database";
 
 const HomePage: FC = async () => {
@@ -9,7 +9,12 @@ const HomePage: FC = async () => {
   });
   const closed = await prisma.issue.count({ where: { status: "CLOSED" } });
 
-  return <IssueSummary open={open} inProgress={inProgress} closed={closed} />;
+  return (
+    <>
+      <IssueSummary open={open} inProgress={inProgress} closed={closed} />
+      <IssueChart open={open} inProgress={inProgress} closed={closed} />
+    </>
+  );
 };
 
 export default HomePage;

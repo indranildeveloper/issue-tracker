@@ -12,3 +12,4 @@ export { type IssuesPageProps } from "./IssuesPageProps";
 export { type PaginationProps } from "./PaginationProps";
 export { type IssueTableProps } from "./IssueTableProps";
 export { type IssueSummaryProps } from "./IssueSummaryProps";
+export { type IssueChartProps } from "./IssueChartProps";
