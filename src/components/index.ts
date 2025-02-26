@@ -14,3 +14,4 @@ export { default as AssigneeSelect } from "./AssigneeSelect";
 export { default as IssueStatusFilter } from "./IssueStatusFilter";
 export { default as Pagination } from "./Pagination";
 export { default as LatestIssues } from "./LatestIssues";
+export { default as IssueSummary } from "./IssueSummary";
