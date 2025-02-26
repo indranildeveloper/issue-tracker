@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { cache, FC } from "react";
 import { notFound } from "next/navigation";
 import { getServerSession } from "next-auth";
 import { Box, Flex, Grid } from "@radix-ui/themes";
@@ -19,11 +19,13 @@ import { authOptions } from "@/constants/authOptions";
  * and getServerSession in the server components
  */
 
+const fetchIssue = cache((issueId: number) =>
+  prisma.issue.findUnique({ where: { id: issueId } }),
+);
+
 export async function generateMetadata({ params }: IssueDetailPageProps) {
   const { issueId } = await params;
-  const issue = await prisma.issue.findUnique({
-    where: { id: parseInt(issueId) },
-  });
+  const issue = await fetchIssue(parseInt(issueId));
 
   return {
     title: issue?.title,
@@ -38,11 +40,7 @@ const IssueDetailPage: FC<IssueDetailPageProps> = async ({ params }) => {
 
   if (Number.isNaN(parseInt(issueId))) notFound();
 
-  const issue = await prisma.issue.findUnique({
-    where: {
-      id: parseInt(issueId),
-    },
-  });
+  const issue = await fetchIssue(parseInt(issueId));
 
   if (!issue) notFound();
 
