@@ -1,7 +1,13 @@
 import { FC } from "react";
+import { Metadata } from "next";
+import { Flex, Grid } from "@radix-ui/themes";
 import { IssueChart, IssueSummary, LatestIssues } from "@/components";
 import { prisma } from "@/db/database";
-import { Flex, Grid } from "@radix-ui/themes";
+
+export const metadata: Metadata = {
+  title: "Issue Tracker - Dashboard",
+  description: "View a summary of project issues.",
+};
 
 const HomePage: FC = async () => {
   const open = await prisma.issue.count({ where: { status: "OPEN" } });

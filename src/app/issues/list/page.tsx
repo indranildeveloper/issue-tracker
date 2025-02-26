@@ -1,11 +1,17 @@
 import { FC } from "react";
+import { Metadata } from "next";
+import { Flex } from "@radix-ui/themes";
+import { Status } from "@prisma/client";
 import { prisma } from "@/db/database";
 import { IssueActions, Pagination } from "@/components";
 import { IssuesPageProps } from "@/interfaces";
-import { Status } from "@prisma/client";
 import { issueTableColumns } from "@/constants/issueTableColumns";
 import IssueTable from "@/components/IssueTable";
-import { Flex } from "@radix-ui/themes";
+
+export const metadata: Metadata = {
+  title: "Issue Tracker - Issue List",
+  description: "View all project issues.",
+};
 
 const IssuesPage: FC<IssuesPageProps> = async ({ searchParams }) => {
   const { status, orderBy, page } = await searchParams;

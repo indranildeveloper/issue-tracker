@@ -19,6 +19,18 @@ import { authOptions } from "@/constants/authOptions";
  * and getServerSession in the server components
  */
 
+export async function generateMetadata({ params }: IssueDetailPageProps) {
+  const { issueId } = await params;
+  const issue = await prisma.issue.findUnique({
+    where: { id: parseInt(issueId) },
+  });
+
+  return {
+    title: issue?.title,
+    description: `Details of issue: ${issue?.id}`,
+  };
+}
+
 const IssueDetailPage: FC<IssueDetailPageProps> = async ({ params }) => {
   const { issueId } = await params;
 
